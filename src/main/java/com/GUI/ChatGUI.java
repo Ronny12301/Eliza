@@ -58,6 +58,7 @@ public class ChatGUI extends javax.swing.JFrame {
         bordeIzquierdo = new javax.swing.JPanel();
         panelSuperiorAzul = new javax.swing.JPanel();
         lblELiza = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         panelLateral = new javax.swing.JPanel();
         ELizaFoto = new javax.swing.JLabel();
         lblChatBot = new javax.swing.JLabel();
@@ -74,10 +75,9 @@ public class ChatGUI extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(870, 460));
         setMinimumSize(new java.awt.Dimension(870, 460));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(870, 460));
         setResizable(false);
 
-        fondo.setBackground(new java.awt.Color(255, 255, 255));
+        fondo.setBackground(new java.awt.Color(84, 84, 84));
         fondo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         fondo.setMaximumSize(new java.awt.Dimension(870, 460));
         fondo.setMinimumSize(new java.awt.Dimension(870, 460));
@@ -205,25 +205,32 @@ public class ChatGUI extends javax.swing.JFrame {
         lblELiza.setForeground(new java.awt.Color(255, 255, 255));
         lblELiza.setText("Eliza");
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/Imagenes/Logo panel superior azul.png"))); // NOI18N
+
         javax.swing.GroupLayout panelSuperiorAzulLayout = new javax.swing.GroupLayout(panelSuperiorAzul);
         panelSuperiorAzul.setLayout(panelSuperiorAzulLayout);
         panelSuperiorAzulLayout.setHorizontalGroup(
             panelSuperiorAzulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelSuperiorAzulLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addGap(21, 21, 21)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblELiza)
-                .addContainerGap(532, Short.MAX_VALUE))
+                .addContainerGap(456, Short.MAX_VALUE))
         );
         panelSuperiorAzulLayout.setVerticalGroup(
             panelSuperiorAzulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblELiza, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)
+            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        fondo.add(panelSuperiorAzul, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 25, 650, 65));
+        fondo.add(panelSuperiorAzul, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 25, 640, 65));
 
         panelLateral.setBackground(new java.awt.Color(51, 51, 51));
 
-        ELizaFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/Imagenes/Eliza Foto.png"))); // NOI18N
+        ELizaFoto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ELizaFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/Imagenes/Logo panel lateral.png"))); // NOI18N
+        ELizaFoto.setPreferredSize(new java.awt.Dimension(208, 162));
 
         lblChatBot.setFont(new java.awt.Font("Open Sans Condensed", 0, 48)); // NOI18N
         lblChatBot.setForeground(new java.awt.Color(255, 255, 255));
@@ -279,27 +286,24 @@ public class ChatGUI extends javax.swing.JFrame {
             panelLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblChatBot, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(panelLateralLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(ELizaFoto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(panelLateralLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(btnEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(ELizaFoto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
         );
         panelLateralLayout.setVerticalGroup(
             panelLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLateralLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(ELizaFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17)
+                .addComponent(ELizaFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblChatBot, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addComponent(lblChatBot, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addComponent(btnEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14))
         );
 
-        fondo.add(panelLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 20, 220, 440));
+        fondo.add(panelLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 20, 230, 440));
 
         bordeInferior.setBackground(java.awt.Color.darkGray);
         bordeInferior.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -334,7 +338,7 @@ public class ChatGUI extends javax.swing.JFrame {
             panelChatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelChatLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(txtMensaje, javax.swing.GroupLayout.DEFAULT_SIZE, 638, Short.MAX_VALUE)
+                .addComponent(txtMensaje, javax.swing.GroupLayout.DEFAULT_SIZE, 628, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panelChatLayout.setVerticalGroup(
@@ -345,7 +349,7 @@ public class ChatGUI extends javax.swing.JFrame {
                 .addContainerGap(9, Short.MAX_VALUE))
         );
 
-        fondo.add(panelChat, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 650, 70));
+        fondo.add(panelChat, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 640, 70));
 
         areaChat.setEditable(false);
         areaChat.setColumns(20);
@@ -354,7 +358,7 @@ public class ChatGUI extends javax.swing.JFrame {
         areaChat.setText("Eliza: BUENAS TARDES, POR FAVOR ESCRIBA SU NOMBRE");
         jScrollPane2.setViewportView(areaChat);
 
-        fondo.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 630, 260));
+        fondo.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 110, 610, 260));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -557,6 +561,7 @@ public class ChatGUI extends javax.swing.JFrame {
     private javax.swing.JPanel btnMinimizar;
     private javax.swing.JPanel fondo;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblBtnCerrar;
     private javax.swing.JLabel lblBtnEnviar;
