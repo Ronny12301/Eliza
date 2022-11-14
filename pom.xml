@@ -26,4 +26,12 @@
             <version>SNAPSHOT</version>
         </dependency>
     </dependencies>
+    
+    <build>
+        <resources>
+            <resource>
+                <directory>src/com/Imagenes</directory>
+            </resource>
+        </resources>
+    </build>
 </project>

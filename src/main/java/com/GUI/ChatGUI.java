@@ -7,6 +7,7 @@ import java.awt.Color;
 import java.awt.Frame;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -28,13 +29,11 @@ public class ChatGUI extends javax.swing.JFrame {
     public ChatGUI() {
         initComponents();
         setLocationRelativeTo(null);
-        
+        setIconImage(new ImageIcon(getClass().getResource("/com/Imagenes/logo.png")).getImage());
         
         //Prevenir el scroll horizontal en el chat
         areaChat.setLineWrap(true);
         areaChat.setWrapStyleWord(true);
-        
-        
         
     }
     
