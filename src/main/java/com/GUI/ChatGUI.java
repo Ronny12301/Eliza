@@ -23,7 +23,7 @@ public class ChatGUI extends javax.swing.JFrame {
     String respuesta;
     String nombreUsuario;
     
-    Color enviarPresionado = new Color(140,155,255);
+    Color colorBtnEnviar = new Color(140,155,255);
     
     public ChatGUI() {
         initComponents();
@@ -36,6 +36,42 @@ public class ChatGUI extends javax.swing.JFrame {
         
         
         
+    }
+    
+    
+    public void enviarMensaje() {
+        if (txtMensaje.getText().equals("")) {
+            return;
+        }
+        
+        if (nombreUsuario == null) {
+            nombreUsuario = txtMensaje.getText();
+            
+            respuesta = areaChat.getText() + "\n" + nombreUsuario +": " + nombreUsuario +
+                    "\nEliza: ES UN PLACER CONOCERTE, " + nombreUsuario;
+            
+            areaChat.setText(respuesta);
+            
+            txtMensaje.setText("");
+            return;
+        }
+
+        respuesta += "\n"+ nombreUsuario + ": " + txtMensaje.getText() + 
+                "\nEliza: " + ElizaRespuestas.respuesta(txtMensaje.getText());
+        
+        areaChat.setText(respuesta);
+        
+        if (UsuarioEntradas.verificarArreglo(txtMensaje.getText(), UsuarioEntradas.getSalir())) {
+            
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(ChatGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            System.exit(0);
+        }
+        
+        txtMensaje.setText("");
     }
 
     /**
@@ -62,11 +98,13 @@ public class ChatGUI extends javax.swing.JFrame {
         panelLateral = new javax.swing.JPanel();
         ELizaFoto = new javax.swing.JLabel();
         lblChatBot = new javax.swing.JLabel();
-        btnEnviar = new javax.swing.JPanel();
+        btnEnviar = new com.GUI.PanelRedondo();
         lblBtnEnviar = new javax.swing.JLabel();
         bordeInferior = new javax.swing.JPanel();
         panelChat = new javax.swing.JPanel();
+        panelRedondo1 = new com.GUI.PanelRedondo();
         txtMensaje = new javax.swing.JTextField();
+        fondoChat = new com.GUI.PanelRedondo();
         jScrollPane2 = new javax.swing.JScrollPane();
         areaChat = new javax.swing.JTextArea();
 
@@ -216,30 +254,37 @@ public class ChatGUI extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblELiza)
-                .addContainerGap(456, Short.MAX_VALUE))
+                .addContainerGap(466, Short.MAX_VALUE))
         );
         panelSuperiorAzulLayout.setVerticalGroup(
             panelSuperiorAzulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblELiza, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)
-            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblELiza, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)
         );
 
-        fondo.add(panelSuperiorAzul, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 25, 640, 65));
+        fondo.add(panelSuperiorAzul, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 25, 650, 65));
 
         panelLateral.setBackground(new java.awt.Color(51, 51, 51));
+        panelLateral.setLayout(null);
 
         ELizaFoto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ELizaFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/Imagenes/Logo panel lateral.png"))); // NOI18N
-        ELizaFoto.setPreferredSize(new java.awt.Dimension(208, 162));
+        panelLateral.add(ELizaFoto);
+        ELizaFoto.setBounds(6, 17, 214, 258);
 
         lblChatBot.setFont(new java.awt.Font("Open Sans Condensed", 0, 48)); // NOI18N
         lblChatBot.setForeground(new java.awt.Color(255, 255, 255));
         lblChatBot.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblChatBot.setText("CHAT BOT");
         lblChatBot.setToolTipText("");
+        panelLateral.add(lblChatBot);
+        lblChatBot.setBounds(0, 281, 220, 57);
 
         btnEnviar.setBackground(new java.awt.Color(140, 155, 255));
-        btnEnviar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEnviar.setBordeInferiorDer(55);
+        btnEnviar.setBordeInferiorIzq(55);
+        btnEnviar.setBordeSuperiorDer(55);
+        btnEnviar.setBordeSuperiorIzq(55);
         btnEnviar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnEnviarMouseClicked(evt);
@@ -267,43 +312,20 @@ public class ChatGUI extends javax.swing.JFrame {
         btnEnviar.setLayout(btnEnviarLayout);
         btnEnviarLayout.setHorizontalGroup(
             btnEnviarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnEnviarLayout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnEnviarLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
                 .addComponent(lblBtnEnviar, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
                 .addContainerGap())
         );
         btnEnviarLayout.setVerticalGroup(
             btnEnviarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnEnviarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblBtnEnviar, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(lblBtnEnviar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout panelLateralLayout = new javax.swing.GroupLayout(panelLateral);
-        panelLateral.setLayout(panelLateralLayout);
-        panelLateralLayout.setHorizontalGroup(
-            panelLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblChatBot, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(panelLateralLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(btnEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(ELizaFoto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
-        );
-        panelLateralLayout.setVerticalGroup(
-            panelLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelLateralLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(ELizaFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblChatBot, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                .addComponent(btnEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
-        );
+        panelLateral.add(btnEnviar);
+        btnEnviar.setBounds(20, 380, 180, 50);
 
-        fondo.add(panelLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 20, 230, 440));
+        fondo.add(panelLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 20, 220, 440));
 
         bordeInferior.setBackground(java.awt.Color.darkGray);
         bordeInferior.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -321,9 +343,16 @@ public class ChatGUI extends javax.swing.JFrame {
 
         fondo.add(bordeInferior, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 458, 780, 2));
 
-        panelChat.setBackground(java.awt.SystemColor.control);
+        panelChat.setBackground(new java.awt.Color(140, 155, 255));
+
+        panelRedondo1.setBackground(new java.awt.Color(255, 255, 255));
+        panelRedondo1.setBordeInferiorDer(45);
+        panelRedondo1.setBordeInferiorIzq(45);
+        panelRedondo1.setBordeSuperiorDer(45);
+        panelRedondo1.setBordeSuperiorIzq(45);
 
         txtMensaje.setFont(new java.awt.Font("Ubuntu Mono", 0, 27)); // NOI18N
+        txtMensaje.setBorder(null);
         txtMensaje.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtMensaje.setMargin(new java.awt.Insets(9, 6, 2, 6));
         txtMensaje.addActionListener(new java.awt.event.ActionListener() {
@@ -332,33 +361,76 @@ public class ChatGUI extends javax.swing.JFrame {
             }
         });
 
+        javax.swing.GroupLayout panelRedondo1Layout = new javax.swing.GroupLayout(panelRedondo1);
+        panelRedondo1.setLayout(panelRedondo1Layout);
+        panelRedondo1Layout.setHorizontalGroup(
+            panelRedondo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRedondo1Layout.createSequentialGroup()
+                .addContainerGap(21, Short.MAX_VALUE)
+                .addComponent(txtMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 566, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26))
+        );
+        panelRedondo1Layout.setVerticalGroup(
+            panelRedondo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(txtMensaje, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout panelChatLayout = new javax.swing.GroupLayout(panelChat);
         panelChat.setLayout(panelChatLayout);
         panelChatLayout.setHorizontalGroup(
             panelChatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelChatLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(txtMensaje, javax.swing.GroupLayout.DEFAULT_SIZE, 628, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap(18, Short.MAX_VALUE)
+                .addComponent(panelRedondo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
         );
         panelChatLayout.setVerticalGroup(
             panelChatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelChatLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(txtMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addGap(14, 14, 14)
+                .addComponent(panelRedondo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
-        fondo.add(panelChat, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 640, 70));
+        fondo.add(panelChat, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 650, 70));
+
+        fondoChat.setBackground(new java.awt.Color(255, 255, 255));
+        fondoChat.setBordeInferiorDer(36);
+        fondoChat.setBordeInferiorIzq(36);
+        fondoChat.setBordeSuperiorDer(36);
+        fondoChat.setBordeSuperiorIzq(36);
+
+        jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane2.setBorder(null);
 
         areaChat.setEditable(false);
+        areaChat.setBackground(new java.awt.Color(255, 255, 255));
         areaChat.setColumns(20);
-        areaChat.setFont(new java.awt.Font("Ubuntu Mono", 0, 24)); // NOI18N
+        areaChat.setFont(new java.awt.Font("Ubuntu Mono", 0, 23)); // NOI18N
         areaChat.setRows(5);
         areaChat.setText("Eliza: BUENAS TARDES, POR FAVOR ESCRIBA SU NOMBRE");
+        areaChat.setBorder(null);
+        areaChat.setOpaque(false);
         jScrollPane2.setViewportView(areaChat);
 
-        fondo.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 110, 610, 260));
+        javax.swing.GroupLayout fondoChatLayout = new javax.swing.GroupLayout(fondoChat);
+        fondoChat.setLayout(fondoChatLayout);
+        fondoChatLayout.setHorizontalGroup(
+            fondoChatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fondoChatLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 623, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        fondoChatLayout.setVerticalGroup(
+            fondoChatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoChatLayout.createSequentialGroup()
+                .addContainerGap(16, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
+        );
+
+        fondo.add(fondoChat, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 610, 260));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -372,6 +444,7 @@ public class ChatGUI extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     
@@ -415,25 +488,6 @@ public class ChatGUI extends javax.swing.JFrame {
         setState(Frame.ICONIFIED);
     }//GEN-LAST:event_lblBtnMInimizarMouseClicked
 
-    private void btnEnviarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEnviarMouseEntered
-        btnEnviar.setBackground(new Color(203,209,255));
-    }//GEN-LAST:event_btnEnviarMouseEntered
-
-    private void btnEnviarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEnviarMouseExited
-        btnEnviar.setBackground(enviarPresionado);
-    }//GEN-LAST:event_btnEnviarMouseExited
-
-    private void btnEnviarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEnviarMousePressed
-        btnEnviar.setBackground(new Color(146,152,189));
-    }//GEN-LAST:event_btnEnviarMousePressed
-
-    private void btnEnviarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEnviarMouseReleased
-        if (btnEnviar.getBackground() == enviarPresionado) {
-        } else {
-            btnEnviar.setBackground(new Color(203,209,255));
-        }
-    }//GEN-LAST:event_btnEnviarMouseReleased
-
     private void lblBtnCerrarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBtnCerrarMousePressed
         btnCerrar.setBackground(new Color(40,40,40));
     }//GEN-LAST:event_lblBtnCerrarMousePressed
@@ -443,77 +497,31 @@ public class ChatGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_lblBtnMInimizarMousePressed
 
     private void txtMensajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMensajeActionPerformed
-        btnEnviar.setBackground(new Color(203,209,255));
-        
-        if (txtMensaje.getText().equals("")) {
-            return;
-        }
-        
-        if (nombreUsuario == null) {
-            nombreUsuario = txtMensaje.getText();
-            
-            respuesta = areaChat.getText() + "\n" + nombreUsuario +": " + nombreUsuario +
-                    "\nEliza: ES UN PLACER CONOCERTE, " + nombreUsuario;
-            
-            areaChat.setText(respuesta);
-            
-            txtMensaje.setText("");
-            return;
-        }
-
-        respuesta += "\n"+ nombreUsuario + ": " + txtMensaje.getText() + 
-                "\nEliza: " + ElizaRespuestas.respuesta(txtMensaje.getText());
-        
-        areaChat.setText(respuesta);
-        
-        if (UsuarioEntradas.verificarArreglo(txtMensaje.getText(), UsuarioEntradas.getSalir())) {
-            
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(ChatGUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            System.exit(0);
-        }
-        
-        txtMensaje.setText("");
+        enviarMensaje();
     }//GEN-LAST:event_txtMensajeActionPerformed
 
     private void btnEnviarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEnviarMouseClicked
-        
-        if (txtMensaje.getText().equals("")) {
-            return;
-        }
-        
-        if (nombreUsuario == null) {
-            nombreUsuario = txtMensaje.getText();
-            
-            respuesta = areaChat.getText() + "\n" + nombreUsuario +": " + nombreUsuario +
-                    "\nEliza: ES UN PLACER CONOCERTE, " + nombreUsuario;
-            
-            areaChat.setText(respuesta);
-            
-            txtMensaje.setText("");
-            return;
-        }
-
-        respuesta += "\n"+ nombreUsuario + ": " + txtMensaje.getText() + 
-                "\nEliza: " + ElizaRespuestas.respuesta(txtMensaje.getText());
-        
-        areaChat.setText(respuesta);
-        
-        if (UsuarioEntradas.verificarArreglo(txtMensaje.getText(), UsuarioEntradas.getSalir())) {
-            
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(ChatGUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            System.exit(0);
-        }
-        
-        txtMensaje.setText("");
+        enviarMensaje();
     }//GEN-LAST:event_btnEnviarMouseClicked
+
+    private void btnEnviarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEnviarMouseEntered
+        btnEnviar.setBackground(new Color(203,209,255));
+    }//GEN-LAST:event_btnEnviarMouseEntered
+
+    private void btnEnviarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEnviarMouseExited
+        btnEnviar.setBackground(colorBtnEnviar);
+    }//GEN-LAST:event_btnEnviarMouseExited
+
+    private void btnEnviarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEnviarMousePressed
+        btnEnviar.setBackground(new Color(146,152,189));
+    }//GEN-LAST:event_btnEnviarMousePressed
+
+    private void btnEnviarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEnviarMouseReleased
+        if (btnEnviar.getBackground() == colorBtnEnviar) {
+        } else {
+            btnEnviar.setBackground(new Color(203,209,255));
+        }
+    }//GEN-LAST:event_btnEnviarMouseReleased
 
     /**
      * @param args the command line arguments
@@ -557,9 +565,10 @@ public class ChatGUI extends javax.swing.JFrame {
     private javax.swing.JPanel bordeInferior;
     private javax.swing.JPanel bordeIzquierdo;
     private javax.swing.JPanel btnCerrar;
-    private javax.swing.JPanel btnEnviar;
+    private com.GUI.PanelRedondo btnEnviar;
     private javax.swing.JPanel btnMinimizar;
     private javax.swing.JPanel fondo;
+    private com.GUI.PanelRedondo fondoChat;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane2;
@@ -570,6 +579,7 @@ public class ChatGUI extends javax.swing.JFrame {
     private javax.swing.JLabel lblELiza;
     private javax.swing.JPanel panelChat;
     private javax.swing.JPanel panelLateral;
+    private com.GUI.PanelRedondo panelRedondo1;
     private javax.swing.JPanel panelSuperiorAzul;
     private javax.swing.JPanel panelVentana;
     private javax.swing.JTextField txtMensaje;
