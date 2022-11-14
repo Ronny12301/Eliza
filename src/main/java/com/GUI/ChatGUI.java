@@ -270,7 +270,7 @@ public class ChatGUI extends javax.swing.JFrame {
         ELizaFoto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ELizaFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/Imagenes/Logo panel lateral.png"))); // NOI18N
         panelLateral.add(ELizaFoto);
-        ELizaFoto.setBounds(6, 17, 214, 258);
+        ELizaFoto.setBounds(0, 17, 220, 258);
 
         lblChatBot.setFont(new java.awt.Font("Open Sans Condensed", 0, 48)); // NOI18N
         lblChatBot.setForeground(new java.awt.Color(255, 255, 255));
