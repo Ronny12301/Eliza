@@ -30,7 +30,7 @@
     <build>
         <resources>
             <resource>
-                <directory>src/com/Imagenes</directory>
+                <directory>src/main/resources</directory>
             </resource>
         </resources>
     </build>
