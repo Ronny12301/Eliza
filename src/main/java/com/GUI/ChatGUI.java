@@ -5,8 +5,6 @@ import com.ElizaMensajes.UsuarioEntradas;
 
 import java.awt.Color;
 import java.awt.Frame;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 
 /**
@@ -305,6 +303,7 @@ public class ChatGUI extends javax.swing.JFrame {
         lblBtnEnviar.setForeground(new java.awt.Color(255, 255, 255));
         lblBtnEnviar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblBtnEnviar.setText("Enviar Mensaje");
+        lblBtnEnviar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout btnEnviarLayout = new javax.swing.GroupLayout(btnEnviar);
         btnEnviar.setLayout(btnEnviarLayout);

@@ -15,7 +15,7 @@ ElizaProyecto_Ronny-1.0-SNAPSHOT.jar
 *.war
 *.nar
 *.ear
-*.zip
+# *.zip #
 *.tar.gz
 *.rar
 
