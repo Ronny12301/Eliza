@@ -26,7 +26,9 @@ public class UsuarioEntradas {
     protected static String[] quiza = {"quiza","probable", "acaso", "posible"};
     protected static String[] quiero = {"quiero", "gustaria tener"};
     protected static String[] disculpa = {"disculpa", "lo siento", "perdon", "lo lamento"};
-
+    protected static String[] noEntiendes = {"entiendes nada", "nunca entiendes"};
+    protected static String[] religion = {"religion", "en que crees", "creencias", "religios"};
+    protected static String[] amor = {"amo", "te quiero", "tkm", "tqm"};
     
     
     public static boolean verificarArreglo(String mensaje, String[] arreglo) {
@@ -42,43 +44,72 @@ public class UsuarioEntradas {
     protected static String[] entrada(String mensaje) {
         if (verificarArreglo(mensaje, saludos)) {
             return ElizaRespuestas.saludos;
-        } else if (verificarArreglo(mensaje, salir)) {
+        } 
+        else if (verificarArreglo(mensaje, salir)) {
             return ElizaRespuestas.salir;
-        } else if (verificarArreglo(mensaje, cansado)) {
+        } 
+        else if (verificarArreglo(mensaje, cansado)) {
             return ElizaRespuestas.cansado;
-        } else if (verificarArreglo(mensaje, positivo)) {
+        } 
+        else if (verificarArreglo(mensaje, positivo)) {
             return ElizaRespuestas.positivo;
-        } else if (verificarArreglo(mensaje, triste)) {
+        } 
+        else if (verificarArreglo(mensaje, triste)) {
             return ElizaRespuestas.triste;
-        } else if (verificarArreglo(mensaje, preguntaAnimo)) {
+        } 
+        else if (verificarArreglo(mensaje, preguntaAnimo)) {
             return ElizaRespuestas.animo;
-        } else if (verificarArreglo(mensaje, familia)) {
+        } 
+        else if (verificarArreglo(mensaje, familia)) {
             return ElizaRespuestas.familia;
-        } else if (verificarArreglo(mensaje, aburrido)) {
+        } 
+        else if (verificarArreglo(mensaje, aburrido)) {
             return ElizaRespuestas.aburrido;
-        } else if (verificarArreglo(mensaje, enojado)) {
+        } 
+        else if (verificarArreglo(mensaje, enojado)) {
             return ElizaRespuestas.enojado;
-        } else if (verificarArreglo(mensaje, pregunta)) {
+        } 
+        else if (verificarArreglo(mensaje, pregunta)) {
             return ElizaRespuestas.respuesta;
-        } else if (verificarArreglo(mensaje, hobbiesELiza)) {
+        } 
+        else if (verificarArreglo(mensaje, hobbiesELiza)) {
             return ElizaRespuestas.hobbiesELiza;
-        } else if (verificarArreglo(mensaje, hobbiesUsuario)) {
+        } 
+        else if (verificarArreglo(mensaje, hobbiesUsuario)) {
             return ElizaRespuestas.hobbiesUsuario;
-        } else if (verificarArreglo(mensaje, talentos)) {
+        } 
+        else if (verificarArreglo(mensaje, talentos)) {
             return ElizaRespuestas.siNo;
-        } else if (verificarArreglo(mensaje, agradecimiento)) {
+        } 
+        else if (verificarArreglo(mensaje, agradecimiento)) {
             return ElizaRespuestas.agradecimiento;
-        } else if (verificarArreglo(mensaje, ocupado)) {
+        } 
+        else if (verificarArreglo(mensaje, ocupado)) {
             return ElizaRespuestas.ocupado;
-        } else if (verificarArreglo(mensaje, no)) {
+        } 
+        else if (verificarArreglo(mensaje, no)) {
             return ElizaRespuestas.respuestaNo;
-        } else if (verificarArreglo(mensaje, quiza)) {
+        } 
+        else if (verificarArreglo(mensaje, quiza)) {
             return ElizaRespuestas.respuestaQuiza;
-        } else if (verificarArreglo(mensaje, quiero)) {
+        } 
+        else if (verificarArreglo(mensaje, quiero)) {
             return ElizaRespuestas.respuestaQuiero;
-        } else if (verificarArreglo(mensaje, disculpa)) {
+        } 
+        else if (verificarArreglo(mensaje, disculpa)) {
             return ElizaRespuestas.disculpa;
-        } else {
+        } 
+        else if (verificarArreglo(mensaje, religion)) {
+            return ElizaRespuestas.religion;
+        } 
+        else if (verificarArreglo(mensaje, noEntiendes)) {
+            return ElizaRespuestas.noEntiendes;
+        }
+        else if (verificarArreglo(mensaje, amor)) {
+            return ElizaRespuestas.amor;
+        }
+        
+        else {
             return ElizaRespuestas.desconocido;
         }
 

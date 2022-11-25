@@ -63,10 +63,9 @@ public class ChatGUI extends javax.swing.JFrame {
         if (UsuarioEntradas.verificarArreglo(txtMensaje.getText(), UsuarioEntradas.getSalir())) {
             
             try {
-                Thread.sleep(2000);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(ChatGUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
+                Thread.sleep(1500);
+            } catch (InterruptedException ex) {}
+            
             System.exit(0);
         }
         

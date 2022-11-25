@@ -28,6 +28,9 @@ public class ElizaRespuestas {
     protected static String[] respuestaNo = {"¿POR QUE NO?", "¿ESTAS SEGURO?", "¿SEGURO?"};
     protected static String[] respuestaQuiza = {"¿ESTAS SEGURO?", "ES POSIBLE", "PUEDE SER"};
     protected static String[] respuestaQuiero = {"¿PARA QUE LO USARIAS?", "¿QUE HARIAS CON ELLO?", "YO TAMBIEN QUISIERA"};
+    protected static String[] amor = {"GRACIAS, TAMBIEN TE QUIERO :)", "<3"};
+    protected static String[] noEntiendes = {"NO, LA VERDAD NO", "QUE ESPERABAS", "EN EFECTO"};
+    protected static String[] religion = {"SOLO CREO EN EL DIOS ESTUDILLO", "SOY DE LA RELGION DEL MONSTRUO DEL ESPAGUETI VOLADOR"};
     
     protected static String[] desconocido = {"NO ENTIENDO", "YA VEO", "INTERESANTE...", "¿POR QUE DICES ESO?", "DIME MAS",
         "¿QUE TE TRAE POR AQUI?", "¿QUE TE GUSTA HACER?", "¿CUALES SON TUS PASATIEMPOS?", "¿COMO TE SIENTES?", "HABLAME DE TU FAMILIA"};
