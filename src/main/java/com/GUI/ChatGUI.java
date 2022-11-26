@@ -5,7 +5,9 @@ import com.ElizaMensajes.UsuarioEntradas;
 
 import java.awt.Color;
 import java.awt.Frame;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -38,7 +40,7 @@ public class ChatGUI extends javax.swing.JFrame {
     
     public void enviarMensaje() {
         if (txtMensaje.getText().equals("")) {
-            return;
+            return;                           //texto vacio, no hacer nada
         }
         
         if (nombreUsuario == null) {
@@ -53,20 +55,16 @@ public class ChatGUI extends javax.swing.JFrame {
             return;
         }
 
+        if (UsuarioEntradas.verificarArreglo(txtMensaje.getText(), UsuarioEntradas.getSalir())) {
+            final ImageIcon icon = new ImageIcon(getClass().getResource("/com/Imagenes/ElizaAdios.png"));
+            JOptionPane.showMessageDialog(fondo, ElizaRespuestas.respuesta(txtMensaje.getText()), "Eliza", JOptionPane.INFORMATION_MESSAGE, icon);
+            System.exit(0);
+        }
+        
         respuesta += "\n"+ nombreUsuario + ": " + txtMensaje.getText() + 
                 "\nEliza: " + ElizaRespuestas.respuesta(txtMensaje.getText());
         
         areaChat.setText(respuesta);
-        
-        if (UsuarioEntradas.verificarArreglo(txtMensaje.getText(), UsuarioEntradas.getSalir())) {
-            
-            try {
-                Thread.sleep(1500);
-            } catch (InterruptedException ex) {}
-            
-            System.exit(0);
-        }
-        
         txtMensaje.setText("");
     }
 
