@@ -16,7 +16,7 @@ public class UsuarioEntradas {
     protected static String[] aburrido = {"aburrido", "Aburrido"};
     protected static String[] enojado = {"enojado", "mal humor", "Enojado", "odio"};
     protected static String[] hobbiesELiza = {"te gusta", "que haces", "Que haces", "tus pasatiempos", "tu tiempo libre", "tus hobbies", "y los tuyos", "que mas", "que sabes hacer"};
-    protected static String[] pregunta = {"Por que", "que opinas de", "por que", "?", "y eso", "como?"};
+    protected static String[] pregunta = {"Por que", "que opinas de", "por que", "?", "y eso", "como"};
     protected static String[] hobbiesUsuario = {"me gusta", "voy a", "salgo a", "practico", "ar"};
     protected static String[] talentos = {"tocas algun instrumento", "sabes hacer", "sabes", "interesante", "y a ti"};
     protected static String[] agradecimiento = {"gracias", "Gracias", "agradezco", "tenkiu", "grax", "agradecido", "agradecida", "amable", "te debo una", "aprecio"};
