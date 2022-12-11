@@ -7,7 +7,7 @@ package com.ElizaMensajes;
 public class UsuarioEntradas {
     
     protected static String[] saludos = {"Hola","hola", "Saludos","saludos", "buenos dias", "Buenas", "Buenos dias", "buenas tardes", "buenas noches"};
-    protected static String[] salir = {"Adios", "adios", "nos vemos", "chau", "chao", "bye", "Bye", "Salir"};
+    protected static String[] salir = {"Adios", "adios", "Nos vemos", "chau", "chao", "bye", "Bye", "Salir"};
     protected static String[] cansado = {"cansado", "agotado", "no he dormido"};
     protected static String[] triste = {"Mal", "mal", "no soy feliz", "triste", "deprimido", "no puedo", "dificil"};
     protected static String[] preocupado = {"problemas", "preocupado"};

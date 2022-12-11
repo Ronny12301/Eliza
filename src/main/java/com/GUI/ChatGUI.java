@@ -103,7 +103,7 @@ public class ChatGUI extends javax.swing.JFrame {
         areaChat = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Eliza - Ronny, Leonardo");
+        setTitle("Eliza Chatbot - Ronny");
         setMaximumSize(new java.awt.Dimension(870, 460));
         setMinimumSize(new java.awt.Dimension(870, 460));
         setUndecorated(true);
